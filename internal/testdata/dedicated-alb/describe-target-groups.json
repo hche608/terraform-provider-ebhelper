@@ -1,0 +1,28 @@
+{
+  "TargetGroups": [
+    {
+      "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-AWSEB-EXAMPLE1234/1234567890abcdef",
+      "TargetGroupName": "awseb-AWSEB-EXAMPLE1234",
+      "Protocol": "HTTP",
+      "Port": 80,
+      "VpcId": "vpc-0123456789abcdef0",
+      "HealthCheckProtocol": "HTTP",
+      "HealthCheckPort": "traffic-port",
+      "HealthCheckEnabled": true,
+      "HealthCheckIntervalSeconds": 15,
+      "HealthCheckTimeoutSeconds": 5,
+      "HealthyThresholdCount": 3,
+      "UnhealthyThresholdCount": 5,
+      "HealthCheckPath": "/",
+      "Matcher": {
+        "HttpCode": "200"
+      },
+      "LoadBalancerArns": [
+        "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/awseb--AWSEB-abcdef123456/1234567890abcdef"
+      ],
+      "TargetType": "instance",
+      "ProtocolVersion": "HTTP1",
+      "IpAddressType": "ipv4"
+    }
+  ]
+}

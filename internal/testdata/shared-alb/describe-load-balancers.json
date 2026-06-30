@@ -1,0 +1,29 @@
+{
+  "LoadBalancers": [
+    {
+      "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/my-shared-webapp-alb/abcdef1234567890",
+      "DNSName": "internal-my-shared-webapp-alb-1234567890.ap-southeast-2.elb.amazonaws.com",
+      "CanonicalHostedZoneId": "Z1GM3OXH4ZPM65",
+      "CreatedTime": "2025-12-17T04:57:00.000000+00:00",
+      "LoadBalancerName": "my-shared-webapp-alb",
+      "Scheme": "internal",
+      "VpcId": "vpc-0123456789abcdef0",
+      "State": {
+        "Code": "active"
+      },
+      "Type": "application",
+      "AvailabilityZones": [
+        {
+          "ZoneName": "ap-southeast-2a",
+          "SubnetId": "subnet-0123456789abcdef1"
+        },
+        {
+          "ZoneName": "ap-southeast-2b",
+          "SubnetId": "subnet-0123456789abcdef0"
+        }
+      ],
+      "SecurityGroups": ["sg-0123456789abcdef0"],
+      "IpAddressType": "ipv4"
+    }
+  ]
+}

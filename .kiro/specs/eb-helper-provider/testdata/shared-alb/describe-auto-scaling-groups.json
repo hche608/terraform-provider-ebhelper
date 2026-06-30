@@ -1,0 +1,71 @@
+{
+  "AutoScalingGroups": [
+    {
+      "AutoScalingGroupName": "awseb-e-xyz789ghi0-stack-AWSEBAutoScalingGroup-EXAMPLE456",
+      "AutoScalingGroupARN": "arn:aws:autoscaling:ap-southeast-2:123456789012:autoScalingGroup:87654321-4321-4321-4321-210987654321:autoScalingGroupName/awseb-e-xyz789ghi0-stack-AWSEBAutoScalingGroup-EXAMPLE456",
+      "LaunchTemplate": {
+        "LaunchTemplateId": "lt-0abcdef1234567890",
+        "LaunchTemplateName": "AWSEBEC2LaunchTemplate_ExampleShared",
+        "Version": "1"
+      },
+      "MinSize": 1,
+      "MaxSize": 1,
+      "DesiredCapacity": 1,
+      "DefaultCooldown": 360,
+      "AvailabilityZones": ["ap-southeast-2a"],
+      "LoadBalancerNames": [],
+      "TargetGroupARNs": [
+        "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-my-app-default-abc12/fedcba0987654321",
+        "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-my-app-process8-def34/0123456789abcdef"
+      ],
+      "HealthCheckType": "EC2",
+      "HealthCheckGracePeriod": 0,
+      "Instances": [
+        {
+          "InstanceId": "i-0abcdef1234567890",
+          "InstanceType": "t3a.medium",
+          "AvailabilityZone": "ap-southeast-2a",
+          "LifecycleState": "InService",
+          "HealthStatus": "Healthy",
+          "LaunchTemplate": {
+            "LaunchTemplateId": "lt-0abcdef1234567890",
+            "LaunchTemplateName": "AWSEBEC2LaunchTemplate_ExampleShared",
+            "Version": "1"
+          },
+          "ProtectedFromScaleIn": false
+        }
+      ],
+      "CreatedTime": "2025-12-17T04:58:30.447000+00:00",
+      "SuspendedProcesses": [],
+      "VPCZoneIdentifier": "subnet-0abcdef1234567890",
+      "Tags": [
+        {
+          "Key": "elasticbeanstalk:environment-name",
+          "Value": "my-webapp-env",
+          "PropagateAtLaunch": true
+        },
+        {
+          "Key": "elasticbeanstalk:environment-id",
+          "Value": "e-xyz789ghi0",
+          "PropagateAtLaunch": true
+        }
+      ],
+      "TerminationPolicies": ["Default"],
+      "NewInstancesProtectedFromScaleIn": false,
+      "InstanceMaintenancePolicy": {
+        "MinHealthyPercentage": 90,
+        "MaxHealthyPercentage": 100
+      },
+      "TrafficSources": [
+        {
+          "Identifier": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-my-app-default-abc12/fedcba0987654321",
+          "Type": "elbv2"
+        },
+        {
+          "Identifier": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-my-app-process8-def34/0123456789abcdef",
+          "Type": "elbv2"
+        }
+      ]
+    }
+  ]
+}

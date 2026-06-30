@@ -1,0 +1,27 @@
+{
+  "Environments": [
+    {
+      "EnvironmentName": "my-webapp-env",
+      "EnvironmentId": "e-xyz789ghi0",
+      "ApplicationName": "my-webapp",
+      "VersionLabel": "webapp-v2-20260629-004433",
+      "SolutionStackName": "64bit Amazon Linux 2023 v4.8.1 running Corretto 21",
+      "PlatformArn": "arn:aws:elasticbeanstalk:ap-southeast-2::platform/Corretto 21 running on 64bit Amazon Linux 2023/4.8.1",
+      "EndpointURL": "internal-my-shared-webapp-alb-1234567890.ap-southeast-2.elb.amazonaws.com",
+      "CNAME": "my-webapp-env.ap-southeast-2.elasticbeanstalk.com",
+      "DateCreated": "2025-12-17T04:57:59.889000+00:00",
+      "DateUpdated": "2026-06-29T00:53:43.684000+00:00",
+      "Status": "Ready",
+      "AbortableOperationInProgress": false,
+      "Health": "Green",
+      "HealthStatus": "Ok",
+      "Tier": {
+        "Name": "WebServer",
+        "Type": "Standard",
+        "Version": "1.0"
+      },
+      "EnvironmentLinks": [],
+      "EnvironmentArn": "arn:aws:elasticbeanstalk:ap-southeast-2:123456789012:environment/my-webapp/my-webapp-env"
+    }
+  ]
+}

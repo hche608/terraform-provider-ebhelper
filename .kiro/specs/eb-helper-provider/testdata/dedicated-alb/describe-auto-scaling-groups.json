@@ -1,0 +1,62 @@
+{
+  "AutoScalingGroups": [
+    {
+      "AutoScalingGroupName": "awseb-e-abc123def4-stack-AWSEBAutoScalingGroup-EXAMPLE123",
+      "AutoScalingGroupARN": "arn:aws:autoscaling:ap-southeast-2:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/awseb-e-abc123def4-stack-AWSEBAutoScalingGroup-EXAMPLE123",
+      "LaunchTemplate": {
+        "LaunchTemplateId": "lt-0123456789abcdef0",
+        "LaunchTemplateName": "AWSEBEC2LaunchTemplate_ExampleTemplate",
+        "Version": "1"
+      },
+      "MinSize": 1,
+      "MaxSize": 1,
+      "DesiredCapacity": 1,
+      "DefaultCooldown": 360,
+      "AvailabilityZones": ["ap-southeast-2b", "ap-southeast-2a"],
+      "LoadBalancerNames": [],
+      "TargetGroupARNs": [
+        "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-AWSEB-EXAMPLE1234/1234567890abcdef"
+      ],
+      "HealthCheckType": "EC2",
+      "HealthCheckGracePeriod": 0,
+      "Instances": [
+        {
+          "InstanceId": "i-0123456789abcdef0",
+          "InstanceType": "r6a.xlarge",
+          "AvailabilityZone": "ap-southeast-2a",
+          "LifecycleState": "InService",
+          "HealthStatus": "Healthy",
+          "LaunchTemplate": {
+            "LaunchTemplateId": "lt-0123456789abcdef0",
+            "LaunchTemplateName": "AWSEBEC2LaunchTemplate_ExampleTemplate",
+            "Version": "1"
+          },
+          "ProtectedFromScaleIn": false
+        }
+      ],
+      "CreatedTime": "2025-12-17T03:04:09.802000+00:00",
+      "SuspendedProcesses": [],
+      "VPCZoneIdentifier": "subnet-0123456789abcdef0,subnet-0123456789abcdef1",
+      "Tags": [
+        {
+          "Key": "elasticbeanstalk:environment-name",
+          "Value": "my-app-env",
+          "PropagateAtLaunch": true
+        },
+        {
+          "Key": "elasticbeanstalk:environment-id",
+          "Value": "e-abc123def4",
+          "PropagateAtLaunch": true
+        }
+      ],
+      "TerminationPolicies": ["Default"],
+      "NewInstancesProtectedFromScaleIn": false,
+      "TrafficSources": [
+        {
+          "Identifier": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-AWSEB-EXAMPLE1234/1234567890abcdef",
+          "Type": "elbv2"
+        }
+      ]
+    }
+  ]
+}

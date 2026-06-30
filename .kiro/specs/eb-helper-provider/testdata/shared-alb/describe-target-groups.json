@@ -1,0 +1,52 @@
+{
+  "TargetGroups": [
+    {
+      "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-my-app-default-abc12/fedcba0987654321",
+      "TargetGroupName": "awseb-my-app-default-abc12",
+      "Protocol": "HTTP",
+      "Port": 80,
+      "VpcId": "vpc-0123456789abcdef0",
+      "HealthCheckProtocol": "HTTP",
+      "HealthCheckPort": "traffic-port",
+      "HealthCheckEnabled": true,
+      "HealthCheckIntervalSeconds": 15,
+      "HealthCheckTimeoutSeconds": 5,
+      "HealthyThresholdCount": 3,
+      "UnhealthyThresholdCount": 5,
+      "HealthCheckPath": "/",
+      "Matcher": {
+        "HttpCode": "200"
+      },
+      "LoadBalancerArns": [
+        "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/my-shared-webapp-alb/abcdef1234567890"
+      ],
+      "TargetType": "instance",
+      "ProtocolVersion": "HTTP1",
+      "IpAddressType": "ipv4"
+    },
+    {
+      "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/awseb-my-app-process8-def34/0123456789abcdef",
+      "TargetGroupName": "awseb-my-app-process8-def34",
+      "Protocol": "HTTP",
+      "Port": 8082,
+      "VpcId": "vpc-0123456789abcdef0",
+      "HealthCheckProtocol": "HTTP",
+      "HealthCheckPort": "traffic-port",
+      "HealthCheckEnabled": true,
+      "HealthCheckIntervalSeconds": 15,
+      "HealthCheckTimeoutSeconds": 5,
+      "HealthyThresholdCount": 3,
+      "UnhealthyThresholdCount": 5,
+      "HealthCheckPath": "/ws",
+      "Matcher": {
+        "HttpCode": "400"
+      },
+      "LoadBalancerArns": [
+        "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/my-shared-webapp-alb/abcdef1234567890"
+      ],
+      "TargetType": "instance",
+      "ProtocolVersion": "HTTP1",
+      "IpAddressType": "ipv4"
+    }
+  ]
+}

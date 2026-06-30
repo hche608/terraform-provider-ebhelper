@@ -1,0 +1,28 @@
+{
+  "EnvironmentResources": {
+    "EnvironmentName": "my-webapp-env",
+    "AutoScalingGroups": [
+      {
+        "Name": "awseb-e-xyz789ghi0-stack-AWSEBAutoScalingGroup-EXAMPLE456"
+      }
+    ],
+    "Instances": [
+      {
+        "Id": "i-0abcdef1234567890"
+      }
+    ],
+    "LaunchConfigurations": [],
+    "LaunchTemplates": [
+      {
+        "Id": "lt-0abcdef1234567890"
+      }
+    ],
+    "LoadBalancers": [
+      {
+        "Name": "arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:loadbalancer/app/my-shared-webapp-alb/abcdef1234567890"
+      }
+    ],
+    "Triggers": [],
+    "Queues": []
+  }
+}
