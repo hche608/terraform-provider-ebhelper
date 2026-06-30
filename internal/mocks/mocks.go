@@ -72,3 +72,19 @@ func (m *MockELBClient) DescribeLoadBalancers(ctx context.Context, params *elast
 	}
 	return args.Get(0).(*elasticloadbalancingv2.DescribeLoadBalancersOutput), args.Error(1)
 }
+
+func (m *MockELBClient) ModifyLoadBalancerAttributes(ctx context.Context, params *elasticloadbalancingv2.ModifyLoadBalancerAttributesInput, optFns ...func(*elasticloadbalancingv2.Options)) (*elasticloadbalancingv2.ModifyLoadBalancerAttributesOutput, error) {
+	args := m.Called(ctx, params, optFns)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).(*elasticloadbalancingv2.ModifyLoadBalancerAttributesOutput), args.Error(1)
+}
+
+func (m *MockELBClient) DescribeLoadBalancerAttributes(ctx context.Context, params *elasticloadbalancingv2.DescribeLoadBalancerAttributesInput, optFns ...func(*elasticloadbalancingv2.Options)) (*elasticloadbalancingv2.DescribeLoadBalancerAttributesOutput, error) {
+	args := m.Called(ctx, params, optFns)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).(*elasticloadbalancingv2.DescribeLoadBalancerAttributesOutput), args.Error(1)
+}

@@ -51,7 +51,7 @@ func TestResources_ReturnsThreeFactories(t *testing.T) {
 	p := &EbhelperProvider{version: "test"}
 	resources := p.Resources(context.Background())
 
-	assert.Len(t, resources, 3, "expected 3 resource factories")
+	assert.Len(t, resources, 8, "expected 8 resource factories")
 
 	// Verify each factory returns a non-nil resource
 	for i, factory := range resources {
@@ -256,7 +256,7 @@ func TestTestProvider_Resources(t *testing.T) {
 	tp := NewTestProvider(clients)
 
 	resources := tp.Resources(context.Background())
-	assert.Len(t, resources, 3)
+	assert.Len(t, resources, 8)
 }
 
 func TestTestProvider_DataSources(t *testing.T) {

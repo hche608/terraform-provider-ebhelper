@@ -226,3 +226,59 @@
 ### Requirements Addressed
 - Requirement 7: Dependency Integration with EB Environment Resource (AC 1-3)
 - Overall goal: Replace null_resource shell scripts with proper Terraform resources
+
+
+---
+
+## Task 13: Implement ebhelper_asg_termination_policy Resource
+
+- [ ] Create `internal/resources/asg_termination_policy/model.go` with `ASGTerminationPolicyModel` (asg_name, termination_policies list)
+- [ ] Create `internal/resources/asg_termination_policy/resource.go` — CRUD via `UpdateAutoScalingGroup` `TerminationPolicies` field
+- [ ] Allowed values: `Default`, `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `OldestLaunchTemplate`, `ClosestToNextInstanceHour`, `AllocationStrategy`
+- [ ] Delete resets to `["Default"]`
+- [ ] Register in provider
+- [ ] Add unit tests with terraform-plugin-testing
+
+---
+
+## Task 14: Implement ebhelper_asg_default_cooldown Resource
+
+- [ ] Create `internal/resources/asg_default_cooldown/model.go` (asg_name, cooldown_seconds)
+- [ ] Create `internal/resources/asg_default_cooldown/resource.go` — CRUD via `UpdateAutoScalingGroup` `DefaultCooldown` field
+- [ ] Delete resets to 300 (AWS default)
+- [ ] Register in provider
+- [ ] Add unit tests
+
+---
+
+## Task 15: Implement ebhelper_asg_max_instance_lifetime Resource
+
+- [ ] Create `internal/resources/asg_max_instance_lifetime/model.go` (asg_name, max_instance_lifetime_seconds)
+- [ ] Create `internal/resources/asg_max_instance_lifetime/resource.go` — CRUD via `UpdateAutoScalingGroup` `MaxInstanceLifetime` field
+- [ ] Valid range: 0 (disabled) or 86400–31536000 (1 day to 365 days)
+- [ ] Delete sets to 0 (disabled)
+- [ ] Register in provider
+- [ ] Add unit tests
+
+---
+
+## Task 16: Implement ebhelper_asg_default_instance_warmup Resource
+
+- [ ] Create `internal/resources/asg_default_instance_warmup/model.go` (asg_name, warmup_seconds)
+- [ ] Create `internal/resources/asg_default_instance_warmup/resource.go` — CRUD via `UpdateAutoScalingGroup` `DefaultInstanceWarmup` field
+- [ ] Delete sets to -1 (disabled, uses default cooldown instead)
+- [ ] Register in provider
+- [ ] Add unit tests
+
+---
+
+## Task 17: Implement ebhelper_alb_attributes Resource
+
+- [ ] Create `internal/resources/alb_attributes/model.go` (load_balancer_arn, attributes map)
+- [ ] Create `internal/resources/alb_attributes/resource.go` — CRUD via `elbv2 ModifyLoadBalancerAttributes` / `DescribeLoadBalancerAttributes`
+- [ ] Support key attributes: `dns_record.client_routing_policy`, `routing.http.xff_client_port.enabled`, `routing.http.x_amzn_tls_version_and_cipher_suite.enabled`, `deletion_protection.enabled`
+- [ ] Add `ELBClient` interface method: `ModifyLoadBalancerAttributes`, `DescribeLoadBalancerAttributes`
+- [ ] Update mock
+- [ ] Delete removes custom attributes (resets to defaults)
+- [ ] Register in provider
+- [ ] Add unit tests

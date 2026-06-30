@@ -10,8 +10,13 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hche608/terraform-provider-ebhelper/internal/awsclient"
+	"github.com/hche608/terraform-provider-ebhelper/internal/resources/alb_attributes"
+	"github.com/hche608/terraform-provider-ebhelper/internal/resources/asg_default_cooldown"
+	"github.com/hche608/terraform-provider-ebhelper/internal/resources/asg_default_instance_warmup"
 	"github.com/hche608/terraform-provider-ebhelper/internal/resources/asg_health_check"
 	"github.com/hche608/terraform-provider-ebhelper/internal/resources/asg_instance_maintenance_policy"
+	"github.com/hche608/terraform-provider-ebhelper/internal/resources/asg_max_instance_lifetime"
+	"github.com/hche608/terraform-provider-ebhelper/internal/resources/asg_termination_policy"
 	"github.com/hche608/terraform-provider-ebhelper/internal/resources/environment_info"
 )
 
@@ -118,6 +123,11 @@ func (p *EbhelperProvider) Resources(_ context.Context) []func() resource.Resour
 		environment_info.NewResource,
 		asg_health_check.NewResource,
 		asg_instance_maintenance_policy.NewResource,
+		asg_termination_policy.NewResource,
+		asg_default_cooldown.NewResource,
+		asg_max_instance_lifetime.NewResource,
+		asg_default_instance_warmup.NewResource,
+		alb_attributes.NewResource,
 	}
 }
 
