@@ -1,0 +1,57 @@
+# Automatically create PRs to update project dependencies
+# Purpose: Keep Go modules and GitHub Actions up-to-date with latest security fixes and features
+# Why: Prevents dependency drift, ensures latest security patches, and maintains compatibility
+# Creates PRs weekly for review before applying updates
+# Note: PRs created by Dependabot won't trigger other workflows by default.
+# Workaround: Close and reopen the PR, or use a PAT for workflow triggers.
+version: 2
+updates:
+  # Go module dependencies
+  # Monitors go.mod for outdated direct and indirect dependencies
+  # Groups related packages (AWS SDK, HashiCorp) into single PRs to reduce noise
+  # Why grouping: AWS SDK and HashiCorp packages often release together,
+  # and updating them individually creates excessive PR churn
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    # Limit open PRs to prevent overwhelming reviewers
+    open-pull-requests-limit: 10
+    # Commit message configuration for consistent changelog
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # Group related dependencies into single PRs
+    # Why: Reduces PR noise and ensures compatible versions are updated together
+    groups:
+      # AWS SDK v2 modules are tightly coupled and should update together
+      aws-sdk:
+        patterns:
+          - "github.com/aws/aws-sdk-go-v2*"
+      # HashiCorp Terraform plugin packages often have interdependencies
+      hashicorp:
+        patterns:
+          - "github.com/hashicorp/*"
+    labels:
+      - "dependencies"
+      - "go"
+
+  # GitHub Actions workflow dependencies
+  # Monitors .github/workflows/*.yml for outdated action versions
+  # Why: Actions can have security vulnerabilities; keeping them current is important
+  # Configuration:
+  # - Separate from Go updates for clearer review
+  # - Lower PR limit since action updates are less frequent
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
